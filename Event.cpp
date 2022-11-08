@@ -39,27 +39,18 @@ class Events
 		eventName = "event name : " + eventName + "\n";
 
 		cout << "\nenter event description ";
-		cin.ignore();
 		getline(cin, eventDescription);
-		eventName = "event description : " + eventDescription + "\n";
+		eventDescription = "event description : " + eventDescription + "\n";
 
-		cout << "\nenter event date(DD/MM/YY)";
-		cin.ignore();
+		cout << "\nenter event date(DD/MM/YY) ";
 		getline(cin, eventDate);
-		eventName = "event date : " + eventDate + "\n";
+		eventDate = "event date : " + eventDate + "\n";
 
-		cout << "\nenter event organizer name";
-		cin.ignore();
+		cout << "\nenter event organizer name ";
 		getline(cin, eventOrganizer);
-		eventName = "organizer name : " + eventOrganizer + "\n";
+		eventOrganizer = "organizer name : " + eventOrganizer + "\n";
 	}
 
-	//		void viewEventDetails(){
-	//			cout<<"\nevent name "<<eventName<<endl;
-	//			cout<<"\nevent description "<<eventDescription<<endl;
-	//			cout<<"\nevent Date "<<eventDate<<endl;
-	//			cout<<"\nevent oraganizer "<<eventOrganizer<<endl;
-	//		}
 };
 
 class EventFunctions: public Events
@@ -160,7 +151,6 @@ class EventFunctions: public Events
 			outf.write((char*) &(obj.eventOrganizer[0]), strlen(obj.eventOrganizer.c_str()));
 			outf.write((char*) &(obj.eid[0]), strlen(obj.eid.c_str()));
 
-			//			outf.write((char*) &(obj), sizeof(obj));
 			outf.close();
 		}
 		else if (auth == 0)
@@ -194,7 +184,7 @@ class EventFunctions: public Events
 			cout << "\n enter event id for deleting the event ";
 			cin >> inputEid;
 
-			fileName = "events/" + inputEid + "Event" + inputEid + ".txt";
+			fileName = "events/" + inputEid + ".txt";
 
 			int result = remove(fileName.c_str());
 
@@ -204,7 +194,7 @@ class EventFunctions: public Events
 			}
 			else if (result == -1)
 			{
-				cout << "\nENTER CORRECT FILE NAME\n";
+				cout << "\nENTER CORRECT EVENT ID\n";
 			}
 		}
 		else if (auth == 0)
@@ -217,10 +207,6 @@ class EventFunctions: public Events
 		}
 	}
 };
-
-//viewer
-//creator
-//superuser
 
 int main()
 {
