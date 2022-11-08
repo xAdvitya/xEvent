@@ -1,0 +1,5 @@
+event name : learning C++
+event description : educating everyone about C++
+event date : 04/03/2023
+organizer name : gfg
+event id is : 15343Event15343
